@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name ="Automation">
+
+<listeners>
+<listener class-name="com.training.listeners.TestListener"></listener>
+</listeners>
+
+<test name ="login">
+
+	<packages>
+    	<package name="com.training.test"/>
+  	</packages>
+    <classes>
+        <class name="com.training.test.LoginTest"/>
+        <class name="com.training.test.*"/>
+       
+    </classes>
+
+</test>
+
+
+</suite>

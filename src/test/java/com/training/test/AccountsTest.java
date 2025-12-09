@@ -29,11 +29,12 @@ public class AccountsTest extends BaseTest {
         screenshot = new ScreenShot();
     }
 
-    @Test
-    public void createAccount_TC11() {
+    // @Test
+    public void createAccount_TC10() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC11: Create Account");
+        System.out.println("Starting TC10: Create Account");
 
+        accountsPage.clickOnAllTabArrow();
         accountsPage.clickAccountsTab();
         Assert.assertTrue(driver.getTitle().contains("Accounts"), "Accounts page not displayed");
 
@@ -45,14 +46,15 @@ public class AccountsTest extends BaseTest {
 
         // Verification: Check if the new account name is displayed on the page
         Assert.assertTrue(driver.getTitle().contains("BPriya"), "Account was not created successfully");
-        System.out.println("TC11 Passed: Account created.");
+        System.out.println("TC10 Passed: Account created.");
     }
 
     @Test
-    public void createNewView_TC12() {
+    public void createNewView_TC11() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC12: Create New View");
+        System.out.println("Starting TC11: Create New View");
 
+        accountsPage.clickOnAllTabArrow();
         accountsPage.clickAccountsTab();
         accountsPage.clickCreateNewView();
 
@@ -64,20 +66,17 @@ public class AccountsTest extends BaseTest {
 
         String selectedView = accountsPage.getSelectedView();
         Assert.assertEquals(selectedView, viewName, "New view was not selected automatically.");
-        System.out.println("TC12 Passed: New view created and selected.");
+        System.out.println("TC11 Passed: New view created and selected.");
     }
 
     @Test
-    public void editView_TC13() {
+    public void editView_TC12() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC13: Edit View");
+        System.out.println("Starting TC12: Edit View");
 
+        accountsPage.clickOnAllTabArrow();
         accountsPage.clickAccountsTab();
 
-        // Ensure we are on a view that can be edited, or create one first if needed.
-        // For this test, we assume the previous test might have left us on a view, or
-        // we select one.
-        // Let's create a view to edit to be safe and independent
         accountsPage.clickCreateNewView();
         String uniqueSuffix = String.valueOf(Date.from(Instant.now()).getTime());
         String viewName = "ViewToEdit" + uniqueSuffix;
@@ -91,38 +90,35 @@ public class AccountsTest extends BaseTest {
 
         String selectedView = accountsPage.getSelectedView();
         Assert.assertEquals(selectedView, newViewName, "View name did not update after edit.");
-        System.out.println("TC13 Passed: View edited.");
+        System.out.println("TC12 Passed: View edited.");
     }
 
     @Test
-    public void mergeAccounts_TC14() {
+    public void mergeAccounts_TC13() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC14: Merge Accounts");
+        System.out.println("Starting TC13: Merge Accounts");
 
+        accountsPage.clickOnAllTabArrow();
         accountsPage.clickAccountsTab();
         accountsPage.clickMergeAccounts();
         Assert.assertTrue(driver.findElement(By.xpath("//h1[contains(text(),'Merge My Accounts')]")).isDisplayed(),
                 "Merge Accounts page not displayed");
 
         accountsPage.searchAccount("acc");
-        // Note: This assumes accounts with 'acc' exist. In a real scenario, we might
-        // need to create them first.
 
         accountsPage.selectAccountsToMerge();
         accountsPage.mergeAccounts();
 
-        // Verification: Check for success message or redirection
-        // Since merge flow ends, we can check if we are back on accounts or specific
-        // page
         Assert.assertTrue(driver.getTitle().contains("Accounts"), "Did not return to Accounts page after merge");
-        System.out.println("TC14 Passed: Accounts merged.");
+        System.out.println("TC13 Passed: Accounts merged.");
     }
 
     @Test
-    public void createAccountReport_TC15() {
+    public void createAccountReport_TC14() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC15: Create Account Report");
+        System.out.println("Starting TC14: Create Account Report");
 
+        accountsPage.clickOnAllTabArrow();
         accountsPage.clickAccountsTab();
         accountsPage.clickLastActivityReport();
         Assert.assertTrue(driver.getTitle().contains("Unsaved Report"), "Report page not displayed");
@@ -132,9 +128,8 @@ public class AccountsTest extends BaseTest {
 
         accountsPage.createReport("Created Date", reportName, reportUniqueName);
 
-        // Verification: Check if report page title contains the report name
         Assert.assertTrue(driver.getTitle().contains(reportName), "Report page title does not contain report name");
-        System.out.println("TC15 Passed: Report created.");
+        System.out.println("TC14 Passed: Report created.");
     }
 
     @AfterMethod

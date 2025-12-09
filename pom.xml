@@ -31,16 +31,26 @@
     <version>5.1.2</version>
 </dependency>
 
-   	<dependency>
-   		<groupId>com.training.testNG</groupId>
-   		<artifactId>TestNGFramework</artifactId>
-   		<version>0.0.1-SNAPSHOT</version>
-   	</dependency>
-   	<dependency>
-   		<groupId>com.training.selenium</groupId>
-   		<artifactId>BasicSelenium</artifactId>
-   		<version>0.0.1-SNAPSHOT</version>
-   	</dependency>
+<dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>javax.mail</artifactId>
+    <version>1.6.2</version>
+</dependency>
+
+
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.16.1</version> 
+    </dependency>
+
+   
+    <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports-testng-adapter</artifactId>
+        <version>1.2.1</version> <!-- Check for latest -->
+        <scope>test</scope>
+    </dependency>
    </dependencies>
   
 </project>

@@ -64,6 +64,7 @@ public class UserMenuDropdownTest extends BaseTest {
 		Assert.assertEquals(dropdownValues, expectedValues);
 	}
 
+	@Test
 	public void myProfileOption_TC06() {
 
 
@@ -100,7 +101,8 @@ public class UserMenuDropdownTest extends BaseTest {
 	    return isInputTag && isFileType;
 	}
 	
-	public void mySettingsOption_TC07() {
+	//@Test
+	/*public void mySettingsOption_TC07() {
 	
 		testName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		userPage.userNavLabel1();
@@ -118,11 +120,11 @@ public class UserMenuDropdownTest extends BaseTest {
 		userPage.ClickCalenderAndRemainder();
 		userPage.selectActivityRemainder();
 		userPage.openaTestRemainder();
-	}
+	}*/
 	
 	
 	//@Test
-    public void SelectMySettings_TC08() throws IOException, InterruptedException {
+    public void SelectMySettings_TC07() throws IOException, InterruptedException {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
         System.out.println("Starting TC07: Select My Settings and customize");
 
@@ -166,12 +168,12 @@ public class UserMenuDropdownTest extends BaseTest {
         Assert.assertTrue(userPage.verifyReminderWindowOpen(), 
                 "Activity Reminder popup window was not detected.");
         
-        System.out.println("TC08 execution complete.");
+        System.out.println("TC07 execution complete.");
     }
 	
 	@Test
-    public void SelectDeveloperConsole_TC09() throws InterruptedException {
-        System.out.println("Starting TC09: Developer Console Test");
+    public void SelectDeveloperConsole_TC08() throws InterruptedException {
+        System.out.println("Starting TC08: Developer Console Test");
         
         userPage.userNavLabel1();
         
@@ -199,12 +201,12 @@ public class UserMenuDropdownTest extends BaseTest {
         driver.switchTo().window(mainWindowHandle);
         
         Assert.assertTrue(isConsoleOpened, "Developer Console window did not open or title did not match.");
-        System.out.println("TC09 Passed");
+        System.out.println("TC08 Passed");
     }
 
     @Test
-    public void SelectLogout_TC10() throws InterruptedException {
-        System.out.println("Starting TC10: Logout Test");
+    public void SelectLogout_TC09() throws InterruptedException {
+        System.out.println("Starting TC09: Logout Test");
         
         userPage.userNavLabel1();
         
@@ -217,7 +219,7 @@ public class UserMenuDropdownTest extends BaseTest {
 
         Assert.assertEquals(actualTitle, expectedTitle, "Logout failed: Page title mismatch.");
         
-        System.out.println("TC10 Passed: User logged out successfully.");
+        System.out.println("TC09 Passed: User logged out successfully.");
     }
 	
 	@AfterMethod()

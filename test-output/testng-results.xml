@@ -1,40 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="1" passed="0" failed="1" skipped="0">
+<testng-results total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-03T08:23:15Z" name="Default suite" finished-at="2025-12-03T08:24:08Z" duration-ms="52669">
+  <suite started-at="2025-12-07T08:06:43Z" name="Default suite" finished-at="2025-12-07T08:07:18Z" duration-ms="35183">
     <groups>
     </groups>
-    <test started-at="2025-12-03T08:23:15Z" name="Default test" finished-at="2025-12-03T08:24:08Z" duration-ms="52669">
-      <class name="com.training.test.AccountsTest">
-        <test-method is-config="true" signature="launchApplication()[pri:0, instance:com.training.test.AccountsTest@8462f31]" started-at="2025-12-03T00:23:15Z" name="launchApplication" finished-at="2025-12-03T00:23:57Z" duration-ms="41836" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchApplication -->
-        <test-method is-config="true" signature="Before()[pri:0, instance:com.training.test.AccountsTest@8462f31]" started-at="2025-12-03T00:23:57Z" name="Before" finished-at="2025-12-03T00:23:57Z" duration-ms="3" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Before -->
-        <test-method signature="createAccount_TC11()[pri:0, instance:com.training.test.AccountsTest@8462f31]" started-at="2025-12-03T00:23:57Z" name="createAccount_TC11" finished-at="2025-12-03T00:24:07Z" duration-ms="10572" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+    <test started-at="2025-12-07T08:06:43Z" name="Default test" finished-at="2025-12-07T08:07:18Z" duration-ms="35183">
+      <class name="com.training.test.RandomTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:com.training.test.RandomTest@8462f31]" started-at="2025-12-07T00:06:43Z" name="launchApplication" finished-at="2025-12-07T00:06:43Z" duration-ms="0" status="FAIL">
+          <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //a[contains(@class,'listRelatedObject accountBlock title')]' (tried for 10 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Setup failure: Could not complete Salesforce login.]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //a[contains(@class,'listRelatedObject accountBlock title')]' (tried for 10 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.training.base.BasePage.waitForWebElement(BasePage.java:66)
-	at com.training.page.AccountsPage.clickAccountsTab(AccountsPage.java:137)
-	at com.training.test.AccountsTest.createAccount_TC11(AccountsTest.java:37)
+              <![CDATA[java.lang.RuntimeException: Setup failure: Could not complete Salesforce login.
+	at com.training.base.BaseTest.launchApplication(BaseTest.java:81)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:138)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:170)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:104)
 	at org.testng.TestRunner.privateRun(TestRunner.java:774)
 	at org.testng.TestRunner.run(TestRunner.java:624)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
@@ -49,15 +37,15 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[contains(@class,'listRelatedObject accountBlock title')]"}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#emc"}
   (Session info: chrome=142.0.7444.176)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'mac.lan', ip: 'fdef:b115:4d68:e5cf:871:1116:3074:7043%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.3.1', java.version: '21.0.9'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: /var/folders/d6/fkjt1cks7nn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51475}, goog:processID: 30878, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 4f936c2f2f0190d0064aef8543a39e74
-*** Element info: {Using=xpath, value=//a[contains(@class,'listRelatedObject accountBlock title')]}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 142.0.7444.176, chrome: {chromedriverVersion: 142.0.7444.175 (302067f14a4..., userDataDir: /var/folders/d6/fkjt1cks7nn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63626}, goog:processID: 61484, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 12ac350412af37eb5b5c7f3e74fce8ca
+*** Element info: {Using=id, value=emc}
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
@@ -68,29 +56,34 @@ Session ID: 4f936c2f2f0190d0064aef8543a39e74
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy13.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 25 more
+	at jdk.proxy2/jdk.proxy2.$Proxy13.sendKeys(Unknown Source)
+	at com.training.base.BasePage.verify(BasePage.java:58)
+	at com.training.base.BaseTest.launchApplication(BaseTest.java:71)
+	... 22 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createAccount_TC11 -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.test.AccountsTest@8462f31]" started-at="2025-12-03T00:24:07Z" name="tearDown" finished-at="2025-12-03T00:24:08Z" duration-ms="250" status="PASS">
+        </test-method> <!-- launchApplication -->
+        <test-method signature="verifyProfile_TC33()[pri:0, instance:com.training.test.RandomTest@8462f31]" started-at="2025-12-07T00:07:18Z" name="verifyProfile_TC33" finished-at="2025-12-07T00:07:18Z" duration-ms="1" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProfile_TC33 -->
+        <test-method is-config="true" signature="Before()[pri:0, instance:com.training.test.RandomTest@8462f31]" started-at="2025-12-07T00:07:18Z" name="Before" finished-at="2025-12-07T00:07:18Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Before -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.training.test.RandomTest@8462f31]" started-at="2025-12-07T00:07:18Z" name="tearDown" finished-at="2025-12-07T00:07:18Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.test.AccountsTest -->
+      </class> <!-- com.training.test.RandomTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

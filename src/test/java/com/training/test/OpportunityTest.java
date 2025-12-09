@@ -30,10 +30,11 @@ public class OpportunityTest extends BaseTest {
     }
 
     @Test
-    public void opportunitiesDropdown_TC16() {
+    public void opportunitiesDropdown_TC15() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC16: Verify Opportunities Dropdown");
+        System.out.println("Starting TC15: Verify Opportunities Dropdown");
 
+        opportunityPage.clickOnAllTabArrow();
         opportunityPage.clickOpportunitiesTab();
 
         List<String> actualValues = opportunityPage.getOpportunitiesDropdownOptions();
@@ -42,21 +43,18 @@ public class OpportunityTest extends BaseTest {
                 "My Opportunities", "New Last Week", "New This Week",
                 "Opportunity Pipeline", "Private", "Recently Viewed Opportunities", "Won");
 
-        // Note: The actual values might differ based on the org configuration.
-        // We verify if the list contains the expected values or matches exactly if the
-        // org is standard.
-        // For robustness, let's check if all expected values are present.
         Assert.assertTrue(actualValues.containsAll(expectedValues),
                 "Dropdown does not contain all expected values. Actual: " + actualValues);
 
-        System.out.println("TC16 Passed: Opportunities dropdown verified.");
+        System.out.println("TC15 Passed: Opportunities dropdown verified.");
     }
 
     @Test
-    public void createOpportunity_TC17() {
+    public void createOpportunity_TC16() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC17: Create New Opportunity");
+        System.out.println("Starting TC16: Create New Opportunity");
 
+        opportunityPage.clickOnAllTabArrow();
         opportunityPage.clickOpportunitiesTab();
         opportunityPage.clickNewOpportunity();
 
@@ -68,51 +66,50 @@ public class OpportunityTest extends BaseTest {
         // Verification: Check if opportunity page is displayed with the new name
         Assert.assertTrue(driver.getTitle().contains(oppName),
                 "Opportunity page title does not contain the new opportunity name.");
-        System.out.println("TC17 Passed: Opportunity created.");
+        System.out.println("TC16 Passed: Opportunity created.");
     }
 
     @Test
-    public void opportunityPipelineReport_TC18() {
+    public void opportunityPipelineReport_TC17() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC18: Opportunity Pipeline Report");
+        System.out.println("Starting TC17: Opportunity Pipeline Report");
 
+        opportunityPage.clickOnAllTabArrow();
         opportunityPage.clickOpportunitiesTab();
         opportunityPage.clickOpportunityPipelineLink();
 
         // Verification: Check page title
         Assert.assertTrue(driver.getTitle().contains("Opportunity Pipeline"),
                 "Opportunity Pipeline page not displayed.");
-        System.out.println("TC18 Passed: Opportunity Pipeline report verified.");
+        System.out.println("TC17 Passed: Opportunity Pipeline report verified.");
     }
 
     @Test
-    public void stuckOpportunitiesReport_TC19() {
+    public void stuckOpportunitiesReport_TC18() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC19: Stuck Opportunities Report");
+        System.out.println("Starting TC18: Stuck Opportunities Report");
 
+        opportunityPage.clickOnAllTabArrow();
         opportunityPage.clickOpportunitiesTab();
         opportunityPage.clickStuckOpportunitiesLink();
 
         // Verification: Check page title
         Assert.assertTrue(driver.getTitle().contains("Stuck Opportunities"), "Stuck Opportunities page not displayed.");
-        System.out.println("TC19 Passed: Stuck Opportunities report verified.");
+        System.out.println("TC18 Passed: Stuck Opportunities report verified.");
     }
 
     @Test
-    public void quarterlySummaryReport_TC20() {
+    public void quarterlySummaryReport_TC19() {
         testName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        System.out.println("Starting TC20: Quarterly Summary Report");
+        System.out.println("Starting TC19: Quarterly Summary Report");
 
+        opportunityPage.clickOnAllTabArrow();
         opportunityPage.clickOpportunitiesTab();
         opportunityPage.selectQuarterlySummary("Current FQ", "All Opportunities");
 
-        // Verification: Check if report is generated or page refreshed.
-        // Since we might just be selecting dropdowns, we check if the elements are
-        // still displayed or if we navigated.
-        // Assuming the page stays or refreshes with data.
         Assert.assertTrue(driver.getTitle().contains("Opportunities"),
                 "Opportunities page not displayed after summary selection.");
-        System.out.println("TC20 Passed: Quarterly Summary report verified.");
+        System.out.println("TC19 Passed: Quarterly Summary report verified.");
     }
 
     @AfterMethod

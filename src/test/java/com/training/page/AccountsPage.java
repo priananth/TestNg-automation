@@ -19,7 +19,10 @@ public class AccountsPage extends BasePage {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//a[contains(@class,'listRelatedObject accountBlock title')]")
+    @FindBy(className = "allTabsArrow")
+    WebElement allTabArraw;
+    
+    @FindBy(xpath = "//a[contains(@class,'listRelatedObject accountBlock')]")
     WebElement accountsTab;
 
     @FindBy(xpath = "//input[contains(@value,'New')]")
@@ -132,6 +135,11 @@ public class AccountsPage extends BasePage {
 
     @FindBy(xpath = "//input[@value='Remind Me Later']")
     WebElement remindMeLaterBtn;
+    
+    
+    public void clickOnAllTabArrow() {
+    	allTabArraw.click();
+    }
 
     public void clickAccountsTab() {
         waitForWebElement(accountsTab, 10);

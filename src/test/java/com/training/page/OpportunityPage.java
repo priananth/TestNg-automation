@@ -21,6 +21,9 @@ public class OpportunityPage extends BasePage {
         this.driver = driver;
     }
 
+    @FindBy(className = "allTabsArrow")
+    WebElement allTabArraw;
+    
     @FindBy(xpath = "//a[contains(@class,'listRelatedObject opportunityBlock title')]")
     WebElement opportunitiesTab;
 
@@ -70,7 +73,12 @@ public class OpportunityPage extends BasePage {
     WebElement includeDropdown;
 
     @FindBy(xpath = "//input[@value='Run Report']")
-    WebElement runReportBtn; // Assuming there is a button to run the report after selection
+    WebElement runReportBtn; 
+    
+    
+    public void clickOnAllTabArrow() {
+    	allTabArraw.click();
+    }
 
     public void clickOpportunitiesTab() {
         waitForWebElement(opportunitiesTab, 10);
@@ -103,18 +111,13 @@ public class OpportunityPage extends BasePage {
         Select stageSelect = new Select(stageDropdown);
         stageSelect.selectByVisibleText(stage);
 
-        // Handling Date - simplified to clicking the link which often defaults to today
-        // or opens calendar
         closeDateLink.click();
-        // If a calendar opens, we might need to select a date.
-        // For now, assuming clicking the link populates it or we need to click 'Today'
-        // in calendar
+       
         try {
             if (driver.findElements(By.xpath("//a[@class='calToday']")).size() > 0) {
                 driver.findElement(By.xpath("//a[@class='calToday']")).click();
             }
         } catch (Exception e) {
-            // Ignore if calendar interaction varies
         }
 
         probabilityInput.clear();
@@ -142,39 +145,12 @@ public class OpportunityPage extends BasePage {
         for (String handle : handles) {
             if (!handle.equals(parentWindow)) {
                 driver.switchTo().window(handle);
-                // In the lookup window, we need to select the campaign.
-                // The original code clicked the first row.
-                // We can try to frame this better, but sticking to original logic:
-                // "//tr[@class='dataRow even last first']"
                 try {
-                    // Switch to frame if necessary? Usually lookup windows are top level.
-                    // Search frame?
-                    // Just wait for element
-                    WebElement firstRow = driver.findElement(By.xpath("//a[contains(@class,' dataCell ')]")); // More
-                                                                                                              // generic
-                                                                                                              // locator
-                                                                                                              // for
-                                                                                                              // first
-                                                                                                              // link in
-                                                                                                              // table
-                    // Or use the one from TC17
-                    // WebElement SelectCampaign= driver.findElement(By.xpath("//tr[@class='dataRow
-                    // even last first']"));
-                    // The TC17 locator seems specific to a table row structure.
-                    // Let's try to find a link inside the results frame/table
-
-                    // Assuming we just click the first available item
+                   
+                    WebElement firstRow = driver.findElement(By.xpath("//a[contains(@class,' dataCell ')]")); 
                     driver.findElement(
                             By.xpath("//a[@href='javascript:top.window.opener.lookupPick2(0,\"Campaign\",\"0\");']"))
                             .click();
-                    // The above is very specific. Let's stick to the TC17 locator if possible or a
-                    // safer one.
-                    // TC17: //tr[@class='dataRow even last first'] -> click() might not work if
-                    // it's a row. usually need to click a link.
-                    // Let's assume there is a link in the body.
-
-                    // Reverting to a more standard lookup selection:
-                    // Usually there's a frame "resultsFrame"
                     driver.switchTo().frame("resultsFrame");
                     driver.findElement(By.xpath("//a[contains(@class,' dataCell ')]")).click();
 
@@ -211,15 +187,11 @@ public class OpportunityPage extends BasePage {
         Select includeSelect = new Select(includeDropdown);
         includeSelect.selectByVisibleText(include);
 
-        // Check if we need to click 'Run Report' or if it auto-refreshes.
-        // TC20 just selects them. Usually there is a 'Run Report' button next to it.
-        // Adding a click if button exists
         try {
             if (runReportBtn.isDisplayed()) {
                 runReportBtn.click();
             }
         } catch (Exception e) {
-            // Button might not be there or auto-submit
-        }
+                    }
     }
 }

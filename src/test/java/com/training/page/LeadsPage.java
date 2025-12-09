@@ -19,6 +19,10 @@ public class LeadsPage extends BasePage {
         this.driver = driver;
     }
 
+    
+    @FindBy(className = "allTabsArrow")
+    WebElement allTabArraw;
+    
     @FindBy(xpath = "//a[contains(@class,'listRelatedObject leadBlock title')]")
     WebElement leadsTab;
 
@@ -48,6 +52,10 @@ public class LeadsPage extends BasePage {
 
     @FindBy(xpath = "//td[@id='bottomButtonRow']//input[@value=' Save ']")
     WebElement saveBtn;
+    
+    public void clickOnAllTabArrow() {
+    	allTabArraw.click();
+    }
 
     public void clickLeadsTab() {
         waitForWebElement(leadsTab, 10);
@@ -56,7 +64,7 @@ public class LeadsPage extends BasePage {
 
     public List<String> getLeadsDropdownOptions() {
         waitForWebElement(leadsDropdown, 10);
-        Select select = new Select(leadsDropdown);
+        Select select = new Select(leadsDropdown); 
         List<WebElement> options = select.getOptions();
         List<String> textOptions = new ArrayList<>();
         for (WebElement option : options) {

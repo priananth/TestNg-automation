@@ -19,6 +19,9 @@ public class ContactsPage extends BasePage {
         this.driver = driver;
     }
 
+    @FindBy(className = "allTabsArrow")
+    WebElement allTabArraw;
+    
     @FindBy(xpath = "//a[contains(@class,'listRelatedObject contactBlock title')]")
     WebElement contactsTab;
 
@@ -70,6 +73,10 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "//select[@id='hotlist_mode' and @name='hotlist_mode' ]")
     WebElement recentContactsDropdown;
 
+    public void clickOnAllTabArrow() {
+    	allTabArraw.click();
+    }
+    
     public void clickContactsTab() {
         waitForWebElement(contactsTab, 10);
         contactsTab.click();

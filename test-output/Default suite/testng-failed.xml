@@ -3,14 +3,12 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="com.training.test.AccountsTest">
+      <class name="com.training.test.RandomTest">
         <methods>
-          <include name="Before"/>
-          <include name="createAccount_TC11"/>
-          <include name="tearDown"/>
+          <include name="verifyProfile_TC33"/>
           <include name="launchApplication"/>
         </methods>
-      </class> <!-- com.training.test.AccountsTest -->
+      </class> <!-- com.training.test.RandomTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

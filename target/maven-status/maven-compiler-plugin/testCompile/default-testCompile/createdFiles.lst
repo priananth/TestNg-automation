@@ -1,0 +1,15 @@
+com/training/test/LeadsTest.class
+com/training/test/RandomTest.class
+com/training/test/OpportunityTest.class
+com/training/page/AccountsPage.class
+com/training/test/LoginControl.class
+com/training/page/LeadsPage.class
+com/training/page/OpportunityPage.class
+com/training/page/RandomPage.class
+com/training/page/UserMenuDropdownPage.class
+com/training/page/LoginPage.class
+com/training/page/ContactsPage.class
+com/training/test/LoginTest.class
+com/training/test/ContactsTest.class
+com/training/test/UserMenuDropdownTest.class
+com/training/test/AccountsTest.class
